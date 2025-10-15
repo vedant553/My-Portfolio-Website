@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { RotatingText } from '../ui/RotatingText';
 import RotatingTextNew from '../ui/RotatingTextNew';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 
 export const Hero = () => {
   const rotatingTexts = [
@@ -20,7 +20,7 @@ export const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h1
-            className="text-6xl md:text-8xl font-bold mb-6 glow-effect"
+            className="text-6xl md:text-8xl font-bold mb-10 glow-effect"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -28,15 +28,51 @@ export const Hero = () => {
             Vedant Nandeshwar
           </motion.h1>
 
-          <div className="text-2xl md:text-4xl mb-8 h-12">
+          <motion.div
+            className="flex items-center justify-center gap-4 mb-10 mt-2"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <motion.a
+              href="https://github.com/vedant553"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-3 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+            >
+              <Github size={24} />
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/vedant-nandeshwar-536428245/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-3 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+            >
+              <Linkedin size={24} />
+            </motion.a>
+            <motion.a
+              href="mailto:vedantnandeshwar2003@gmail.com"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-3 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+            >
+              <Mail size={24} />
+            </motion.a>
+          </motion.div>
+
+          <div className="text-2xl md:text-4xl -mt-3 mb 2 h-8">
             <RotatingText texts={rotatingTexts} />
           </div>
 
           <motion.div
-            className="mb-8 flex items-center justify-center gap-3"
+            className="mt 4 mb 6 flex items-center justify-center gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
             <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">I do</span>
             <RotatingTextNew
@@ -54,19 +90,19 @@ export const Hero = () => {
           </motion.div>
 
           <motion.p
-            className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-400 my-6 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
             I design and build beautiful and scalable web applications from concept to completion.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center mt 4"
+            initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
+            transition={{ delay: 0.3, duration: 0.3 }}
           >
             <motion.a
               href="#contact"
