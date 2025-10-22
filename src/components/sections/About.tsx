@@ -44,15 +44,11 @@ export const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <ScrollReveal delay={0.2}>
             <div className="space-y-6">
-              <p className="text-2xl text-gray-300 leading-relaxed">
-                A passionate web developer and designer with a knack for creating engaging and 
-                user-friendly digital experiences. I am seeking a challenging full-time position 
-                where I can apply my skills to build innovative and high-quality web applications.
+              <p className="text-xl text-gray-300 leading-relaxed">
+                Hello! I'm Vedant, a Computer Science graduate from Mumbai passionate about building interactive, real-time web applications. I specialize in full-stack development with React and Node.js, enterprise solutions using Java Spring Boot, and creative projects with Python, OpenCV, and Pygame.
               </p>
-              <p className="text-2xl text-gray-300 leading-relaxed">
-                I thrive in collaborative environments and am always eager to learn new technologies. 
-                My goal is to create web experiences that not only look beautiful but also solve 
-                real-world problems and delight users.
+              <p className="text-xl text-gray-300 leading-relaxed">
+                I enjoy exploring all aspects of development—from full-stack MERN apps to real-time features with Three.js, MediaPipe, and WebSockets. With a strong grasp of UI/UX design and AI-driven development tools, I focus on creating intuitive, efficient, and memorable user experiences.
               </p>
             </div>
           </ScrollReveal>
