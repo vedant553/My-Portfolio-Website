@@ -19,16 +19,9 @@ export const Contact = () => {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      // Replace these with your actual EmailJS service ID, template ID, and public key
-      const serviceId = 'service_hsn9fb4';
-      const templateId = 'template_mpmxybs';
-      const publicKey = 'oNSRzLJ4Cbox1-gqx';
-
-      console.log('EmailJS Environment Variables:', {
-        serviceId,
-        templateId,
-        publicKey
-      });
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       const templateParams = {
         to_name: 'Vedant',  // Your name
@@ -36,8 +29,6 @@ export const Contact = () => {
         from_email: formData.email,
         message: formData.message,
       };
-
-      console.log('Sending with params:', templateParams);
 
       await emailjs.send(
         serviceId,
