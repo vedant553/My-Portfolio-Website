@@ -20,9 +20,9 @@ export const Contact = () => {
 
     try {
       // Replace these with your actual EmailJS service ID, template ID, and public key
-      const serviceId = 'service_hsn9fb4';
-      const templateId = 'template_tk89d0o';
-      const publicKey = 'oNSRzLJ4Cbox1-gqx';
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       await emailjs.send(
         serviceId,
@@ -193,7 +193,7 @@ export const Contact = () => {
 
         <ScrollReveal delay={0.6}>
           <p className="text-center text-gray-500 mt-12">
-            © 2025 Vedant Nandeshwar. All Rights Reserved.
+            2025 Vedant Nandeshwar. All Rights Reserved.
           </p>
         </ScrollReveal>
       </div>
