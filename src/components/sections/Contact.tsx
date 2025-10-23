@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { Github, Linkedin, Mail, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, Send, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,13 +10,45 @@ export const Contact = () => {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      // Replace these with your actual EmailJS service ID, template ID, and public key
+      const serviceId = 'service_hsn9fb4';
+      const templateId = 'template_tk89d0o';
+      const publicKey = 'oNSRzLJ4Cbox1-gqx';
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      setSubmitStatus({ 
+        type: 'success', 
+        message: 'Thank you for your message! I will get back to you soon.' 
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Failed to send message. Please try again later or contact me directly at your.email@example.com' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -87,15 +120,38 @@ export const Contact = () => {
               />
             </div>
 
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full px-8 py-4 bg-primary text-black font-bold rounded-lg hover:bg-primary/80 transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Send Message
-              <Send size={20} />
-            </motion.button>
+            <div className="space-y-4">
+              {submitStatus.type && (
+                <div 
+                  className={`p-4 rounded-lg ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                      : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                  }`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full px-8 py-4 bg-primary text-black font-bold rounded-lg hover:bg-primary/80 transition-colors inline-flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="animate-spin h-5 w-5" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send size={20} />
+                  </>
+                )}
+              </motion.button>
+            </div>
           </form>
         </ScrollReveal>
 
