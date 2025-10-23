@@ -24,7 +24,18 @@ export const Contact = () => {
       const templateId = 'template_tk89d0o';
       const publicKey = 'oNSRzLJ4Cbox1-gqx';
 
-      await emailjs.send(
+      console.log('Sending email with data:', {
+        serviceId,
+        templateId,
+        templateParams: {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        publicKey: publicKey ? '*** (key exists)' : 'MISSING KEY'
+      });
+
+      const response = await emailjs.send(
         serviceId,
         templateId,
         {
@@ -34,17 +45,46 @@ export const Contact = () => {
         },
         publicKey
       );
+      
+      console.log('EmailJS Response:', response);
 
       setSubmitStatus({ 
         type: 'success', 
         message: 'Thank you for your message! I will get back to you soon.' 
       });
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      console.error('Failed to send message:', error);
+    } catch (err) {
+      // Type assertion for the error object
+      const error = err as any;
+      console.error('Failed to send message. Full error:', error);
+      
+      // Safely extract error details with type checking
+      const errorDetails = {
+        name: typeof error?.name === 'string' ? error.name : 'No error name',
+        message: typeof error?.message === 'string' ? error.message : 'No error message',
+        status: typeof error?.status === 'number' ? error.status : 0,
+        text: typeof error?.text === 'string' ? error.text : 'No error text',
+        stack: typeof error?.stack === 'string' ? error.stack : 'No stack trace'
+      };
+      
+      console.error('Error details:', errorDetails);
+      
+      // Show user-friendly error message based on status code
+      let errorMessage = 'Failed to send message. Please try again later or contact me directly.';
+      
+      if (errorDetails.status === 400) {
+        errorMessage = 'Invalid request. Please check your email and try again.';
+      } else if (errorDetails.status === 401) {
+        errorMessage = 'Authentication failed. Please verify your EmailJS credentials.';
+      } else if (errorDetails.status === 429) {
+        errorMessage = 'Too many requests. Please try again in a few minutes.';
+      } else if (errorDetails.message.includes('Failed to fetch')) {
+        errorMessage = 'Network error. Please check your internet connection.';
+      }
+      
       setSubmitStatus({ 
         type: 'error', 
-        message: 'Failed to send message. Please try again later or contact me directly at your.email@example.com' 
+        message: errorMessage
       });
     } finally {
       setIsSubmitting(false);
