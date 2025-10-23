@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { Github, Linkedin, Mail, Send, Loader2 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ export const Contact = () => {
     try {
       // Replace these with your actual EmailJS service ID, template ID, and public key
       const serviceId = 'service_hsn9fb4';
-      const templateId = 'template_tk89d0o';
+      const templateId = 'template_mpmxybs';
       const publicKey = 'oNSRzLJ4Cbox1-gqx';
 
       console.log('EmailJS Environment Variables:', {
@@ -30,14 +30,19 @@ export const Contact = () => {
         publicKey
       });
 
+      const templateParams = {
+        to_name: 'Vedant',  // Your name
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      };
+
+      console.log('Sending with params:', templateParams);
+
       await emailjs.send(
         serviceId,
         templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
+        templateParams,
         publicKey
       );
 
@@ -47,11 +52,19 @@ export const Contact = () => {
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error('Failed to send message:', error);
-      setSubmitStatus({ 
-        type: 'error', 
-        message: 'Failed to send message. Please try again later or contact me directly at your.email@example.com' 
-      });
+      if (error instanceof EmailJSResponseStatus) {
+        console.error('EmailJS Error Details:', error.status, error.text);
+        setSubmitStatus({ 
+          type: 'error', 
+          message: error.text || 'Failed to send message.' 
+        });
+      } else {
+        console.error('Unexpected error:', error);
+        setSubmitStatus({ 
+          type: 'error', 
+          message: 'An unexpected error occurred. Please try again later.' 
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
