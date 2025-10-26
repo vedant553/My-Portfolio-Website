@@ -31,6 +31,13 @@ export const Projects = () => {
       image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80',
       link: '#',
     },
+    {
+      title: 'AI-Powered Chat Application',
+      description: 'A real-time chat application with AI integration for smart replies and conversation analysis. Features end-to-end encryption and multi-platform support.',
+      tags: ['Next.js', 'TypeScript', 'OpenAI API', 'WebSockets'],
+      image: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&q=80',
+      link: '#',
+    },
   ];
 
   return (
