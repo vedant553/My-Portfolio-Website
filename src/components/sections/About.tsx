@@ -11,7 +11,6 @@ import {
   SiMongodb, 
   SiGit, 
   SiGithub, 
-  SiNextdotjs, 
   SiTailwindcss 
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
@@ -28,7 +27,6 @@ export const About = () => {
     { name: 'MongoDB', icon: SiMongodb },
     { name: 'Git', icon: SiGit },
     { name: 'GitHub', icon: SiGithub },
-    { name: 'Next.js', icon: SiNextdotjs },
     { name: 'Tailwind CSS', icon: SiTailwindcss },
   ];
 
