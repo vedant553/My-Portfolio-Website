@@ -52,10 +52,12 @@ export const Projects = () => {
           </p>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 auto-rows-fr">
           {projects.map((project, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <SpotlightCard {...project} />
+              <div className="h-full">
+                <SpotlightCard {...project} className="h-full" />
+              </div>
             </ScrollReveal>
           ))}
         </div>

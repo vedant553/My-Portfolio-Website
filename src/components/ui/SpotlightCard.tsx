@@ -7,9 +7,10 @@ interface SpotlightCardProps {
   tags: string[];
   image: string;
   link?: string;
+  className?: string;
 }
 
-export const SpotlightCard = ({ title, description, tags, image, link }: SpotlightCardProps) => {
+export const SpotlightCard = ({ title, description, tags, image, link, className = '' }: SpotlightCardProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +28,7 @@ export const SpotlightCard = ({ title, description, tags, image, link }: Spotlig
       ref={cardRef}
       onMouseMove={handleMouseMove}
       whileHover={{ scale: 1.02 }}
-      className="relative group overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black border border-white/10 p-6 transition-all duration-300"
+      className={`relative group overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black border border-white/10 p-6 transition-all duration-300 h-full ${className}`}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
