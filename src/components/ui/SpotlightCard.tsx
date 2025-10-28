@@ -1,16 +1,21 @@
 import { useState, useRef, MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 
+interface LinkItem {
+  label: string;
+  url: string;
+}
+
 interface SpotlightCardProps {
   title: string;
   description: string;
   tags: string[];
   image: string;
-  link?: string;
+  links?: LinkItem[];
   className?: string;
 }
 
-export const SpotlightCard = ({ title, description, tags, image, link, className = '' }: SpotlightCardProps) => {
+export const SpotlightCard = ({ title, description, tags, image, links = [], className = '' }: SpotlightCardProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -63,16 +68,23 @@ export const SpotlightCard = ({ title, description, tags, image, link, className
           ))}
         </div>
 
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-4 py-2 bg-primary text-black font-medium rounded-lg hover:bg-primary/80 transition-colors"
-          >
-            View Project
-          </a>
-        )}
+        <div className="flex flex-wrap gap-3 mt-4">
+          {links.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                link.label === 'GitHub'
+                  ? 'bg-gray-800 text-white hover:bg-gray-700'
+                  : 'bg-primary text-black hover:bg-primary/80'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

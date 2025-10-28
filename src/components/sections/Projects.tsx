@@ -8,35 +8,49 @@ export const Projects = () => {
       description: 'A voice-powered task management application that allows natural voice commands for managing tasks, featuring automatic categorization, privacy-focused local processing, and a beautiful responsive UI.',
       tags: ['React', 'Context API', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Web Speech API'],
       image: '/assets/projects/speakify.png',
-      link: 'https://speakifyy.vercel.app/',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/vedant553/Speakify' },
+        { label: 'Live Demo Link 1', url: 'https://speakifyy.vercel.app/' },
+        { label: 'Live Demo Link 2', url: 'https://speakifyy.netlify.app/' },
+      ],
     },
     {
       title: 'Planora',
       description: 'A collaborative trip planning platform that simplifies group travel with shared itineraries, activity voting, and real-time expense tracking, all in one place.',
       tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'JWT', 'Material UI'],
       image: '/assets/projects/planora.png',
-      link: '#',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/vedant553/planoraa' }
+      ],
     },
     {
       title: 'My Portfolio Website',
       description: 'A modern, responsive portfolio website featuring dark theme animations, interactive UI elements, and dynamic visual effects.',
       tags: ['TypeScript', 'React', 'Three.js', 'Tailwind CSS', 'Framer Motion'],
       image: '/assets/projects/portfolio.png',
-      link: '#',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/vedant553/My-Portfolio-Website' }
+      ],
     },
     {
       title: 'Spell Casting OpenCV Game',
       description: 'An engaging multiplayer word battle game where players cast spells by forming words, featuring real-time duels, power-ups, and global leaderboards.',
       tags: ['Python', 'OpenCV', 'MediaPipe', 'WebSocket', 'FastAPI'],
       image: '/assets/projects/spell-casting.png',
-      link: '#',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/vedant553/spell-casting-game-webapp' }
+      ],
     },
     {
       title: 'Pathfinding Algorithm Visualizer',
       description: 'An interactive web-based pathfinding algorithm visualizer that demonstrates various algorithms with customizable grids, real-time visualization, and step-by-step execution.',
       tags: ['Python', 'Pygame', 'A* Algorithm'],
       image: '/assets/projects/pathfinding.png',
-      link: '#',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/vedant553/pathfinding-visualizer' },
+        { label: 'Live Demo Link 1', url: 'https://pathfinder-vedant.vercel.app/' },
+        { label: 'Live Demo Link 2', url: 'https://pathfinder-vedant.netlify.app/' },
+      ],
     },
   ];
 
