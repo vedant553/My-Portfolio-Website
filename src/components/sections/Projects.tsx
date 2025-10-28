@@ -8,7 +8,7 @@ export const Projects = () => {
       description: 'A voice-powered task management application that allows natural voice commands for managing tasks, featuring automatic categorization, privacy-focused local processing, and a beautiful responsive UI.',
       tags: ['React', 'Context API', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Web Speech API'],
       image: '/assets/projects/speakify.png',
-      link: '#',
+      link: 'https://speakifyy.vercel.app/',
     },
     {
       title: 'Planora',
