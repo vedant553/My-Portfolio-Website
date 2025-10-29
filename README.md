@@ -2,6 +2,9 @@
 
 A modern, dark-themed portfolio website built with React, TypeScript, Tailwind CSS, and Framer Motion.
 
+### Visit here 1: https://vedantnandeshwar.vercel.app/
+### Visit here 2: https://vedantnandeshwar.netlify.app/
+
 ## Features
 
 - 🎨 Dark theme with vibrant accent colors
