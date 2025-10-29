@@ -4,6 +4,16 @@ import { SpotlightCard } from '../ui/SpotlightCard';
 export const Projects = () => {
   const projects = [
     {
+      title: 'Planora',
+      description: 'A collaborative trip planning platform that simplifies group travel with shared itineraries, activity voting, and real-time expense tracking, all in one place.',
+      tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'JWT', 'Material UI'],
+      image: '/assets/projects/planora.png',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/vedant553/planoraa' },
+        { label: 'Live Demo Link', url: 'https://planoraa.vercel.app/' }
+      ],
+    },
+    {
       title: 'Speakify',
       description: 'A voice-powered task management application that allows natural voice commands for managing tasks, featuring automatic categorization, privacy-focused local processing, and a beautiful responsive UI.',
       tags: ['React', 'Context API', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Web Speech API'],
@@ -12,15 +22,6 @@ export const Projects = () => {
         { label: 'GitHub', url: 'https://github.com/vedant553/Speakify' },
         { label: 'Live Demo Link 1', url: 'https://speakifyy.vercel.app/' },
         { label: 'Live Demo Link 2', url: 'https://speakifyy.netlify.app/' },
-      ],
-    },
-    {
-      title: 'Planora',
-      description: 'A collaborative trip planning platform that simplifies group travel with shared itineraries, activity voting, and real-time expense tracking, all in one place.',
-      tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'JWT', 'Material UI'],
-      image: '/assets/projects/planora.png',
-      links: [
-        { label: 'GitHub', url: 'https://github.com/vedant553/planoraa' }
       ],
     },
     {
