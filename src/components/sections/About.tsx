@@ -43,10 +43,10 @@ export const About = () => {
           <ScrollReveal delay={0.2}>
             <div className="space-y-6">
               <p className="text-xl text-gray-300 leading-relaxed">
-                Hello! I'm Vedant, a Computer Science graduate from Mumbai passionate about building interactive, real-time web applications. I specialize in full-stack development with React and Node.js, enterprise solutions using Java Spring Boot, and creative projects with Python, OpenCV, and Pygame.
+                Hello! I'm Vedant, a Computer Science Graduate with a specialization in full-stack development. My passion lies at the intersection of intuitive user experiences and robust, scalable backend systems. I thrive on solving complex technical challenges and am dedicated to building accessible, feature-rich applications that blend modern design with efficient performance.
               </p>
               <p className="text-xl text-gray-300 leading-relaxed">
-                I enjoy exploring all aspects of development—from full-stack MERN apps to real-time features with Three.js, MediaPipe, and WebSockets. With a strong grasp of UI/UX design and AI-driven development tools, I focus on creating intuitive, efficient, and memorable user experiences.
+                My hands-on experience covers the entire project lifecycle, from initial UI/UX design in Figma  to developing and deploying complex applications. I'm proficient in modern frontend technologies like React, TypeScript, and Framer Motion , as well as backend systems using Node.js, Express.js, and FastAPI. I've built a variety of projects, including real-time collaboration platforms , voice-enabled task managers , and interactive gesture-controlled games.
               </p>
             </div>
           </ScrollReveal>
