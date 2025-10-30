@@ -43,10 +43,10 @@ export const About = () => {
           <ScrollReveal delay={0.2}>
             <div className="space-y-6">
               <p className="text-xl text-gray-300 leading-relaxed">
-                Hello! I'm Vedant, a Computer Science Graduate with a specialization in full-stack development. My passion lies at the intersection of intuitive user experiences and robust, scalable backend systems. I thrive on solving complex technical challenges and am dedicated to building accessible, feature-rich applications that blend modern design with efficient performance.
+                Hello! I'm Vedant, a Computer Science Graduate with a specialization in <span className="text-gradient">full-stack development</span>. My passion lies at the intersection of <span className="text-gradient">intuitive user experiences</span> and <span className="text-gradient">robust, scalable backend systems</span>. I thrive on solving complex technical challenges and am dedicated to building <span className="text-gradient">accessible</span>, <span className="text-gradient">feature-rich</span> applications that blend modern design with efficient performance.
               </p>
               <p className="text-xl text-gray-300 leading-relaxed">
-                My hands-on experience covers the entire project lifecycle, from initial UI/UX design in Figma  to developing and deploying complex applications. I'm proficient in modern frontend technologies like React, TypeScript, and Framer Motion , as well as backend systems using Node.js, Express.js, and FastAPI. I've built a variety of projects, including real-time collaboration platforms , voice-enabled task managers , and interactive gesture-controlled games.
+                My hands-on experience covers the entire project lifecycle, from initial UI/UX design in Figma  to <span className="text-gradient">developing and deploying</span> complex applications. I'm proficient in modern frontend technologies like <span className="text-gradient">React</span>, <span className="text-gradient">TypeScript</span>, and <span className="text-gradient">Framer Motion</span>, as well as backend systems using <span className="text-gradient">Node.js</span>, <span className="text-gradient">Express.js</span>, and <span className="text-gradient">FastAPI</span>. I've built a variety of projects, including real-time collaboration platforms, voice-enabled task managers, and interactive gesture-controlled games.
               </p>
             </div>
           </ScrollReveal>
